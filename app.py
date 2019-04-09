@@ -1,5 +1,6 @@
 from flask import Flask,render_template,url_for,request
-import pandas as pd 
+import pandas as pd
+import numpy as np
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -10,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+	return render_template('home.html', name='homepage')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -20,7 +21,7 @@ def predict():
 	df['label'] = df['class'].map({'ham': 0, 'spam': 1})
 	X = df['message']
 	y = df['label']
-	
+
 	# Extract Feature With CountVectorizer
 	cv = CountVectorizer()
 	X = cv.fit_transform(X) # Fit the Data
@@ -42,7 +43,15 @@ def predict():
 		data = [message]
 		vect = cv.transform(data).toarray()
 		my_prediction = clf.predict(vect)
-	return render_template('result.html',prediction = my_prediction)
+		my_probability = clf.predict_proba(vect)
+		my_spam_probability = np.round(my_probability[0][1] * 100, decimals=3)
+		my_ham_probability = np.round(my_probability[0][0] * 100, decimals=3)
+
+
+	return render_template('result.html',
+	 						prediction = my_prediction,
+							spam_probability = my_spam_probability,
+							ham_probability = my_ham_probability)
 
 
 

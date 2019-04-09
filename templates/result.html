@@ -1,32 +1,33 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<title></title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/css.css') }}">
 </head>
 <body>
 
 	<header>
-		<div class="container">
-		<div id="brandname">
-			ML App
-		</div>
 		<h2>Spam Detector For SMS Messages</h2>
-		
-	</div>
 	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+
+	<p><b>Results</b></p>
+
 	<div class="results">
 
-
-		
 	{% if prediction == 1%}
 	<h2 style="color:red;">Spam</h2>
+	<p>The probability of this being spam is: {{ spam_probability }}%</p>
+	<img src="static/images/spam.jpg" width='300' height='300'  alt="Spam!">
 	{% elif prediction == 0%}
-	<h2 style="color:blue;">Not a Spam (It is a Ham)</h2>
+	<h2 style="color:green;">Not a Spam (It is a Ham)</h2>
+	<p>The probability of this not being spam is: {{ ham_probability }}%</p>
+	<img src="static/images/ham.jpg" width='300' height='300' alt="Ham">
 	{% endif %}
 
-	</div>
+	<form action="{{ url_for('home') }}">
+    <input type="submit" value="Home" />
+	</form>
 
 </body>
 </html>

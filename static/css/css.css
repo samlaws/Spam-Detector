@@ -1,0 +1,35 @@
+/* Applies to the entire body of the HTML document (except where overridden by more specific
+selectors). */
+body {
+  margin: 25px;
+  background-color: rgb(240,240,240);
+  font-family: "Lucida Console", monospace;
+  font-size: 28px;
+}
+
+/* Applies to all <h1>...</h1> elements. */
+h1 {
+  font-size: 35px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+textarea {
+ width: 510px;
+ height: 200px;
+ font-size: 1em;
+ font-weight: normal;
+ font-family: "Lucida Console", monospace;
+ border: 1px solid black;
+}
+
+input[type="submit"]
+{
+    font-size:24px;
+}
+
+/* Applies to all elements with <... class="someclass"> specified. */
+.someclass { color: red; }
+
+/* Applies to the element with <... id="someid"> specified. */
+#someid { color: green; }
