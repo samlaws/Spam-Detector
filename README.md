@@ -1,8 +1,6 @@
 # Spam-Detector
 
-Basic NLP model deployed using flask
-
-Small project to practice using flask and also get to grips with some simple css and html code. 
+Basic NLP model deployed using flask, a small project to practice using flask and also get to grips with some simple css and html code. 
 
 The model is count vectorized and trained using sklearn, the training data was obtained from [Kaggle](https://www.kaggle.com/uciml/sms-spam-collection-dataset/version/1).
 
