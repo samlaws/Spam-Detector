@@ -4,7 +4,7 @@ Basic NLP model deployed using flask, a small project to practice using flask an
 
 The model is count vectorized and trained using sklearn, the training data was obtained from [Kaggle](https://www.kaggle.com/uciml/sms-spam-collection-dataset/version/1).
 
-The all initial code was taken from a repository by [susanli2016](https://github.com/susanli2016/SMS-Message-Spam-Detector).
+Initial code was taken from a repository by [susanli2016](https://github.com/susanli2016/SMS-Message-Spam-Detector).
 
 
 # To Do
