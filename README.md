@@ -9,7 +9,4 @@ Initial code was taken from a repository by [susanli2016](https://github.com/sus
 
 # To Do
 
- * Change to load a pretrained model
- * Add some custom styling
- * Add the probabilty to the results page
- * Display some stats of the model on the home page
+* Improve model
