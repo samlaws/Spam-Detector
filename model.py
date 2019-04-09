@@ -12,6 +12,14 @@ df['label'] = df['class'].map({'ham': 0, 'spam': 1})
 X = df['message']
 y = df['label']
 
+#Stats for about page
+len_df = len(df)
+
+spam_df = df[df.label == 1]
+num_spam = len(spam_df)
+
+num_ham = len_df - num_spam
+
 # Extract Feature With CountVectorizer
 cv = CountVectorizer()
 X = cv.fit_transform(X) # Fit the Data

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>About</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/css.css') }}">
+</head>
+<body>
+
+	<header>
+		<h2 >Spam Detector</h2>
+	</header>
+
+	<div>
+
+    <p>This model was trained on data from Kaggle, a csv containing <b>{{ total_am }}</b> SMS messages.</p>
+    <p><b>{{ ham }}</b> of them were legitimate but <b>{{ spam }}</b> of them were spam.</p>
+		<p>The model is a multinomial Naive Bayes classifier with a test accuracy of model <b>{{ score }}%</b></p>
+
+	</div>
+
+  <form action="{{ url_for('home') }}">
+    <input type="submit" value="Go Back" />
+	</form>
+
+</body>
+</html>

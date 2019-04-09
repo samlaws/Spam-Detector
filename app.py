@@ -1,17 +1,21 @@
-from flask import Flask,render_template,url_for,request
-import numpy as np
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
+import numpy as np
 from sklearn.externals import joblib
-
-from model import score
+from model import score, len_df, num_spam, num_ham
+from flask import Flask,render_template,url_for,request
+from sklearn.feature_extraction.text import CountVectorizer
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
+	return render_template('home.html', name='homepage')
+
+@app.route('/about')
+def about():
 	my_score = score
-	return render_template('home.html', name='homepage', score=my_score)
+	return render_template('about.html', name='aboutpage', score=my_score,
+		total_am=len_df, spam=num_spam, ham=num_ham)
 
 @app.route('/predict',methods=['POST'])
 def predict():

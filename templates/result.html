@@ -17,16 +17,16 @@
 
 	{% if prediction == 1%}
 	<h2 style="color:red;">Spam</h2>
-	<p>The probability of this being spam is: {{ spam_probability }}%</p>
+	<p>The probability of this being spam is: <b>{{ spam_probability }}%</b></p>
 	<img src="static/images/spam.jpg" width='300' height='300'  alt="Spam!">
 	{% elif prediction == 0%}
 	<h2 style="color:green;">Not a Spam (It is a Ham)</h2>
-	<p>The probability of this not being spam is: {{ ham_probability }}%</p>
+	<p>The probability of this not being spam is: <b>{{ ham_probability }}%</b></p>
 	<img src="static/images/ham.jpg" width='300' height='300' alt="Ham">
 	{% endif %}
 
 	<form action="{{ url_for('home') }}">
-    <input type="submit" value="Home" />
+    <input type="submit" value="Go Back" />
 	</form>
 
 </body>
